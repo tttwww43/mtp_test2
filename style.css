@@ -2,10 +2,10 @@
 /* 1. CSS 변수 및 애니메이션 키프레임 (KHIDI CI 주황색/회색 반영) */
 /* ========================================================= */
 :root {
-    --primary-color: #555555; /* KHIDI CI - 깊은 회색 (메인 색상, Toss Dark 대신 사용) */
+    --primary-color: #555555; /* KHIDI CI - 깊은 회색 (메인 색상) */
     --secondary-color: #FF6B00; /* KHIDI CI - 주황색 (강조/포인트 색상) */
     --accent-color: #FF6B00; 
-    --text-primary: #111827; /* 짙은 텍스트 (가독성 유지) */
+    --text-primary: #111827; 
     --text-secondary: #4b5563; 
     --text-light: #9ca3af;
     --background-light: #F8F9FA; 
@@ -46,6 +46,16 @@
     0% { opacity: 1; }
     50% { opacity: 0.8; }
     100% { opacity: 1; }
+}
+
+/* 움직이는 배경 애니메이션 추가 */
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 /* ========================================================= */
@@ -230,7 +240,7 @@ main section {
 .btn-primary:hover {
     background: var(--secondary-color); /* 주황색 호버 */
     box-shadow: var(--shadow-heavy);
-    transform: translateY(-4px); 
+    transform: translateY(-4px); /* 더 깊이 있는 호버 효과 */
 }
 
 .btn-secondary {
@@ -262,17 +272,20 @@ main section {
 /* 5. 메인 페이지 (index.html) 스타일 */
 /* ========================================================= */
 
-/* Hero Landing (Toss 스타일 타이포그래피 및 여백) */
+/* Hero Landing (움직이는 배경 구현) */
 .hero-landing {
     background: var(--background-white);
-    background: linear-gradient(180deg, var(--background-white) 0%, var(--background-light) 100%); 
+    /* 1. 배경 설정: 옅은 회색 단색 배경 */
+    background-color: var(--background-white);
+    position: relative; /* ::before를 위한 기준점 */
+    overflow: hidden; /* 배경 요소가 밖으로 나가는 것을 방지 */
     
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     
-    padding-top: calc(6rem + 6rem); /* 헤더 공간 확보 + 상단 여백 증가 */
+    padding-top: calc(6rem + 6rem); 
     padding-bottom: 10rem;
     
     min-height: 80vh; 
@@ -280,6 +293,35 @@ main section {
     cursor: pointer; 
     margin-top: 0; 
 }
+
+/* Hero Landing ::before (움직이는 배경 레이어) */
+.hero-landing::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    
+    /* 2. 그라디언트 설정 (CI 색상과 투명도를 섞어 은은하게) */
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.08), transparent 40%), /* 주황색 포인트 */
+        radial-gradient(circle at 90% 80%, rgba(85, 85, 85, 0.05), transparent 30%), /* 회색 포인트 */
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5), transparent 50%); /* 중앙 밝기 */
+        
+    background-size: 300% 300%; /* 배경을 크게 만들어 부드러운 움직임 유도 */
+    
+    /* 3. 애니메이션 적용 */
+    animation: moveBackground 60s linear infinite alternate; /* 60초 느린 움직임 */
+    z-index: 0; /* 콘텐츠 뒤로 보내기 */
+}
+
+/* Hero Content는 z-index를 높여 배경 위에 확실히 표시 */
+.hero-landing .container {
+    position: relative;
+    z-index: 1; 
+}
+
 
 .hero-landing .hero-title {
     font-size: 5rem; 
@@ -291,7 +333,7 @@ main section {
 }
 
 .hero-landing .hero-description {
-    font-size: 1.8rem; /* 설명 텍스트 크기 증가 */
+    font-size: 1.8rem; 
     max-width: 900px;
     margin: 0 auto 4rem;
     color: var(--text-secondary);
@@ -663,8 +705,8 @@ main section {
 }
 
 .program-card:hover {
-    box-shadow: var(--shadow-heavy); 
-    transform: translateY(-8px); 
+    box-shadow: var(--shadow-heavy); /* 호버 시 그림자 강하게 */
+    transform: translateY(-8px); /* 더 높이 들어올림 */
     border-top-color: var(--secondary-color);
 }
 
@@ -745,11 +787,11 @@ main section {
     background: var(--secondary-color); 
     color: white;
     border-radius: var(--border-radius-full);
+    box-shadow: var(--shadow-medium);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    box-shadow: var(--shadow-medium);
 }
 
 .timeline-content h3 {
@@ -891,6 +933,7 @@ main section {
     border-radius: var(--border-radius-full);
     background-color: var(--primary-color);
     color: white;
+    box-shadow: var(--shadow-light);
     font-size: 1.2rem;
     transition: var(--transition);
 }
@@ -898,7 +941,7 @@ main section {
 .social-link:hover {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-medium);
 }
 
 
