@@ -24,8 +24,8 @@
     --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.15); /* 호버 시 입체적인 그림자 */
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
     
-    --border-radius: 12px; /* 모서리를 부드럽게 (Kakao Pay 스타일) */
-    --border-radius-large: 20px; /* 선택 카드 등 큰 모서리 */
+    --border-radius: 16px; /* 모서리를 부드럽게 (Kakao Pay 스타일) */
+    --border-radius-large: 28px; /* 선택 카드 등 큰 모서리 더 부드럽게 */
     --border-radius-full: 9999px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -94,7 +94,7 @@ h1, h2, h3 {
 }
 
 main section {
-    padding: 8rem 0; /* 섹션 간격 대폭 증가 (여백 강조) */
+    padding: 10rem 0; /* 섹션 간격 대폭 증가 (여백 강조) */
 }
 
 .section-title {
@@ -264,30 +264,36 @@ main section {
 /* 5. 메인 페이지 (index.html) 스타일 */
 /* ========================================================= */
 
-/* Hero Landing (Full-Screen UX - Apple/Toss 스타일) */
+/* Hero Landing (풀스크린 헤더/텍스트 잘림 문제 해결 및 스타일 업그레이드) */
 .hero-landing {
     background: var(--background-white);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 0;
-    padding-bottom: 0;
+    
+    /* 폰트 잘림 문제 해결: fixed 헤더(6rem) 공간 확보 + 상하 여백 */
+    padding-top: calc(6rem + 4rem); /* 헤더 높이(6rem) + 상단 여백(4rem) */
+    padding-bottom: 8rem;
+    
+    min-height: 80vh; /* 뷰포트 대비 최소 높이 설정 */
+    
     cursor: pointer; 
-    margin-top: -6rem; 
+    margin-top: 0; /* 기존 -6rem 문제 해결 */
 }
 
 .hero-landing .hero-title {
-    font-size: 4.5rem; /* 가장 중요한 제목 크기 극대화 (Toss/Apple) */
-    margin-bottom: 1.5rem;
+    font-size: 5rem; /* 제목 크기 극대화 (Toss 스타일) */
+    margin-bottom: 2rem; /* 여백 증가 */
     color: var(--primary-color); 
     transition: none;
+    line-height: 1.1; /* 줄 간격 조정 */
 }
 
 .hero-landing .hero-description {
-    font-size: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto 3rem;
+    font-size: 1.6rem; /* 설명 텍스트 크기 증가 (Apple 스타일) */
+    max-width: 900px;
+    margin: 0 auto 3.5rem;
     color: var(--text-secondary);
     transition: none;
 }
@@ -323,8 +329,8 @@ main section {
 .selection-card {
     display: block;
     background-color: var(--background-white);
-    padding: 3rem;
-    border-radius: var(--border-radius-large); /* 더 큰 모서리 */
+    padding: 3.5rem; /* 내부 여백 증가 */
+    border-radius: var(--border-radius-large); /* 28px 적용 (Kakao Pay 스타일) */
     box-shadow: var(--shadow-light);
     border-top: 5px solid var(--secondary-color);
     text-align: center;
@@ -936,9 +942,6 @@ main section {
     font-weight: 600;
     color: var(--text-primary);
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     transition: var(--transition-fast);
 }
 
