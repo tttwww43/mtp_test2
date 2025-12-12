@@ -275,10 +275,9 @@ main section {
 /* Hero Landing (움직이는 배경 구현) */
 .hero-landing {
     background: var(--background-white);
-    /* 1. 배경 설정: 옅은 회색 단색 배경 */
     background-color: var(--background-white);
-    position: relative; /* ::before를 위한 기준점 */
-    overflow: hidden; /* 배경 요소가 밖으로 나가는 것을 방지 */
+    position: relative; 
+    overflow: hidden; 
     
     display: flex;
     align-items: center;
@@ -313,7 +312,7 @@ main section {
     
     /* 3. 애니메이션 적용 */
     animation: moveBackground 60s linear infinite alternate; /* 60초 느린 움직임 */
-    z-index: 0; /* 콘텐츠 뒤로 보내기 */
+    z-index: 0; 
 }
 
 /* Hero Content는 z-index를 높여 배경 위에 확실히 표시 */
@@ -351,7 +350,7 @@ main section {
     display: block;
     font-size: 1.8rem;
     margin-top: 1.5rem;
-    color: var(--secondary-color); /* 주황색 강조 */
+    color: var(--secondary-color); 
     animation: pulse 1.5s infinite; 
 }
 
@@ -385,7 +384,7 @@ main section {
 .selection-card:hover {
     box-shadow: var(--shadow-heavy); 
     transform: translateY(-8px); 
-    border-color: var(--secondary-color); /* 주황색 호버 테두리 */
+    border-color: var(--secondary-color); 
 }
 
 .selection-icon {
@@ -396,7 +395,7 @@ main section {
 }
 
 .selection-card:hover .selection-icon {
-    color: var(--secondary-color); /* 주황색 호버 아이콘 */
+    color: var(--secondary-color); 
 }
 
 .selection-title {
@@ -425,18 +424,18 @@ main section {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
     transition: var(--transition);
-    border-left: 6px solid var(--primary-color); /* 회색 기반 강조 선 */
+    border-left: 6px solid var(--primary-color); 
 }
 
 .feature-card:hover {
     box-shadow: var(--shadow-heavy);
     transform: translateY(-8px); 
-    border-color: var(--secondary-color); /* 주황색 호버 */
+    border-color: var(--secondary-color); 
 }
 
 .feature-icon {
     font-size: 2.8rem;
-    color: var(--secondary-color); /* 주황색 아이콘 */
+    color: var(--secondary-color); 
     margin-bottom: 1.5rem;
     animation: none; 
 }
@@ -486,7 +485,7 @@ main section {
 /* 6. 페이지 헤더 스타일 (application.html, program.html, contact.html) */
 /* ========================================================= */
 .application-hero, .program-hero, .contact-hero {
-    background: var(--primary-color); /* 회색 기반 헤더 배경 */
+    background: var(--primary-color); 
     color: white;
     padding: 6rem 0 4rem 0; 
     margin-top: -6rem;
@@ -578,7 +577,7 @@ main section {
 
 .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(85, 85, 85, 0.2); /* 회색 기반 포커스 */
+    box-shadow: 0 0 0 4px rgba(85, 85, 85, 0.2); 
     outline: none;
     background-color: var(--background-white);
 }
@@ -603,7 +602,7 @@ main section {
     padding: 1.8rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
-    border-left: 6px solid var(--secondary-color); /* 주황색 강조 */
+    border-left: 6px solid var(--secondary-color); 
 }
 
 .info-box h4 {
