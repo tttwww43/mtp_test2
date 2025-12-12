@@ -34,6 +34,9 @@
 /* ========================================================= */
 /* 2. 전역 스타일 및 타이포그래피 */
 /* ========================================================= */
+body {
+    background-color: red !important; /* 배경색을 강제로 빨간색으로 설정 */
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -46,3 +49,4 @@ body {
     color: var(--text-primary);
     background-color: var(--background-light);
     padding
+
