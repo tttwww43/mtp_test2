@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body id="application">
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -39,12 +39,12 @@
         <section class="application-hero">
             <div class="container">
                 <h1 class="application-title">
-                    <span class="lang-ko">연수 프로그램 지원</span>
-                    <span class="lang-en" style="display: none;">Training Program Application</span>
+                    <span class="lang-ko" id="app-title-ko">연수 프로그램 지원</span>
+                    <span class="lang-en" style="display: none;" id="app-title-en">Training Program Application</span>
                 </h1>
                 <p class="application-description">
-                    <span class="lang-ko">한국의 우수한 의료 기술을 배우고자 하는 외국인 의사들을 위한 지원서입니다.</span>
-                    <span class="lang-en" style="display: none;">Application for international doctors who want to learn Korea's excellent medical technology.</span>
+                    <span class="lang-ko" id="app-desc-ko">한국의 우수한 의료 기술을 배우고자 하는 외국인 의사들을 위한 지원서입니다.</span>
+                    <span class="lang-en" style="display: none;" id="app-desc-en">Application for international doctors who want to learn Korea's excellent medical technology.</span>
                 </p>
             </div>
         </section>
@@ -53,7 +53,10 @@
             <div class="container">
                 <div class="form-container">
                     <form id="applicationForm" class="application-form-element">
-                        <div class="form-section">
+                        
+                        <input type="hidden" id="applicationType" name="applicationType" value="physician">
+                        
+                        <div class="form-section animate-on-scroll">
                             <h3 class="section-subtitle">
                                 <span class="lang-ko">개인 정보</span>
                                 <span class="lang-en" style="display: none;">Personal Information</span>
@@ -109,22 +112,22 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section animate-on-scroll" id="medical-info-section">
                             <h3 class="section-subtitle">
-                                <span class="lang-ko">의사 자격 정보</span>
-                                <span class="lang-en" style="display: none;">Medical License Information</span>
+                                <span class="lang-ko" id="med-info-title-ko">의사 자격 정보</span>
+                                <span class="lang-en" style="display: none;" id="med-info-title-en">Medical License Information</span>
                             </h3>
                             
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="medicalLicense" class="form-label">
-                                        <span class="lang-ko">의사 면허 번호 *</span>
-                                        <span class="lang-en" style="display: none;">Medical License Number *</span>
+                                        <span class="lang-ko" id="license-label-ko">의사 면허 번호 *</span>
+                                        <span class="lang-en" style="display: none;" id="license-label-en">Medical License Number *</span>
                                     </label>
                                     <input type="text" id="medicalLicense" name="medicalLicense" class="form-control" required>
                                     <div class="error-message" id="medicalLicenseError"></div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="specialization-group">
                                     <label for="specialization" class="form-label">
                                         <span class="lang-ko">전문 분야 *</span>
                                         <span class="lang-en" style="display: none;">Specialization *</span>
@@ -174,16 +177,16 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="hospital" class="form-label">
-                                        <span class="lang-ko">현재 근무 병원 *</span>
-                                        <span class="lang-en" style="display: none;">Current Hospital *</span>
+                                        <span class="lang-ko" id="hospital-label-ko">현재 근무 병원 *</span>
+                                        <span class="lang-en" style="display: none;" id="hospital-label-en">Current Hospital *</span>
                                     </label>
                                     <input type="text" id="hospital" name="hospital" class="form-control" required>
                                     <div class="error-message" id="hospitalError"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="experienceYears" class="form-label">
-                                        <span class="lang-ko">경력 (년) *</span>
-                                        <span class="lang-en" style="display: none;">Experience (Years) *</span>
+                                        <span class="lang-ko" id="experience-label-ko">경력 (년) *</span>
+                                        <span class="lang-en" style="display: none;" id="experience-label-en">Experience (Years) *</span>
                                     </label>
                                     <input type="number" id="experienceYears" name="experienceYears" min="0" max="50" class="form-control" required>
                                     <div class="error-message" id="experienceYearsError"></div>
@@ -191,7 +194,7 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section animate-on-scroll">
                             <h3 class="section-subtitle">
                                 <span class="lang-ko">연수 프로그램 선택</span>
                                 <span class="lang-en" style="display: none;">Training Program Selection</span>
@@ -293,7 +296,7 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section animate-on-scroll">
                             <h3 class="section-subtitle">
                                 <span class="lang-ko">지원 동기</span>
                                 <span class="lang-en" style="display: none;">Application Motivation</span>
@@ -310,7 +313,7 @@
                             </div>
                         </div>
 
-                        <div class="form-section">
+                        <div class="form-section animate-on-scroll">
                             <h3 class="section-subtitle">
                                 <span class="lang-ko">파일 첨부</span>
                                 <span class="lang-en" style="display: none;">File Attachments</span>
@@ -318,8 +321,8 @@
                             
                             <div class="form-group">
                                 <label for="resume" class="form-label">
-                                    <span class="lang-ko">이력서 (PDF)</span>
-                                    <span class="lang-en" style="display: none;">Resume (PDF)</span>
+                                    <span class="lang-ko" id="resume-label-ko">이력서 (PDF)</span>
+                                    <span class="lang-en" style="display: none;" id="resume-label-en">Resume (PDF)</span>
                                 </label>
                                 <input type="file" id="resume" name="resume" class="form-control" accept=".pdf">
                                 <div class="error-message" id="resumeError"></div>
@@ -327,15 +330,15 @@
 
                             <div class="form-group">
                                 <label for="certificates" class="form-label">
-                                    <span class="lang-ko">자격증 사본 (PDF)</span>
-                                    <span class="lang-en" style="display: none;">License Certificate (PDF)</span>
+                                    <span class="lang-ko" id="cert-label-ko">자격증 사본 (PDF)</span>
+                                    <span class="lang-en" style="display: none;" id="cert-label-en">License Certificate (PDF)</span>
                                 </label>
                                 <input type="file" id="certificates" name="certificates" class="form-control" accept=".pdf">
                                 <div class="error-message" id="certificatesError"></div>
                             </div>
                         </div>
 
-                        <div class="form-actions">
+                        <div class="form-actions animate-on-scroll">
                             <button type="submit" class="btn btn-primary btn-large">
                                 <span class="lang-ko">지원서 제출</span>
                                 <span class="lang-en" style="display: none;">Submit Application</span>
@@ -347,13 +350,13 @@
                         </div>
                     </form>
 
-                    <div class="form-info">
+                    <div class="form-info animate-on-scroll">
                         <div class="info-box">
                             <h4>
                                 <span class="lang-ko">지원 자격</span>
                                 <span class="lang-en" style="display: none;">Eligibility</span>
                             </h4>
-                            <ul>
+                            <ul id="eligibility-list">
                                 <li>
                                     <span class="lang-ko">의사 면허 소지자</span>
                                     <span class="lang-en" style="display: none;">Licensed medical doctor</span>
@@ -374,7 +377,7 @@
                                 <span class="lang-ko">제출 서류</span>
                                 <span class="lang-en" style="display: none;">Required Documents</span>
                             </h4>
-                            <ul>
+                            <ul id="documents-list">
                                 <li>
                                     <span class="lang-ko">이력서 (CV)</span>
                                     <span class="lang-en" style="display: none;">Resume (CV)</span>
