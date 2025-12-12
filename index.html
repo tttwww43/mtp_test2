@@ -36,42 +36,60 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="lang-ko">한국 의료 연수 프로그램</span>
-                        <span class="lang-en" style="display: none;">Korean Medical Training Program</span>
-                    </h1>
-                    <p class="hero-description">
-                        <span class="lang-ko">세계적인 한국의료 기술을 배울 수 있는 특별한 기회</span>
-                        <span class="lang-en" style="display: none;">A special opportunity to learn world-class Korean medical technology</span>
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="application.html" class="btn btn-primary">
-                            <span class="lang-ko">지원하기</span>
-                            <span class="lang-en" style="display: none;">Apply Now</span>
-                        </a>
-                        <a href="program.html" class="btn btn-secondary">
-                            <span class="lang-ko">프로그램 소개</span>
-                            <span class="lang-en" style="display: none;">Program Details</span>
-                        </a>
-                    </div>
+        <section class="hero hero-landing" id="hero-landing">
+            <div class="container hero-content text-center">
+                <h1 class="hero-title animate-on-scroll" data-delay="100">
+                    <span class="lang-en">Korean Medical Training Program (KMTP)</span>
+                    <span class="lang-ko" style="display: none;">한국 의료 연수 프로그램 (KMTP)</span>
+                </h1>
+                <p class="hero-description animate-on-scroll" data-delay="300" style="margin-bottom: 3rem;">
+                    <span class="lang-en">KMTP offers exclusive training opportunities in Korea for international physicians, dentists, and other medical professionals, focusing on world-class technology and clinical excellence.</span>
+                    <span class="lang-ko" style="display: none;">KMTP는 세계적인 의료 기술과 임상 우수성에 중점을 두고 외국인 의사, 치과의사 및 기타 의료 전문가들에게 한국에서의 독점적인 연수 기회를 제공합니다.</span>
+                </p>
+                <div class="hero-scroll-cue animate-on-scroll" data-delay="500">
+                    <p class="lang-en">Scroll down or click to select your application type</p>
+                    <p class="lang-ko" style="display: none;">지원 유형을 선택하려면 아래로 스크롤하거나 클릭하세요</p>
+                    <i class="fas fa-chevron-down scroll-down-icon pulse"></i>
                 </div>
-                <div class="hero-image">
-                    <i class="fas fa-hospital-alt"></i>
+            </div>
+        </section>
+
+        <section class="application-selection" id="application-selection">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="lang-ko">지원 유형 선택</span>
+                    <span class="lang-en" style="display: none;">Select Your Application Type</span>
+                </h2>
+                <div class="selection-grid">
+                    <a href="application.html?type=physician" class="selection-card animate-on-scroll" data-delay="100">
+                        <i class="fas fa-user-md selection-icon"></i>
+                        <h3 class="selection-title"><span class="lang-ko">의사 (Physician)</span><span class="lang-en" style="display: none;">Physician</span></h3>
+                        <p class="selection-description"><span class="lang-ko">의료 면허 소지자, 전문의, 전임의 대상의 임상 연수</span><span class="lang-en" style="display: none;">Clinical training for licensed MDs, specialists, and fellows.</span></p>
+                    </a>
+
+                    <a href="application.html?type=dentist" class="selection-card animate-on-scroll" data-delay="200">
+                        <i class="fas fa-tooth selection-icon"></i>
+                        <h3 class="selection-title"><span class="lang-ko">치과의사 (Dentist)</span><span class="lang-en" style="display: none;">Dentist</span></h3>
+                        <p class="selection-description"><span class="lang-ko">치과 면허 소지자, 임상 경험을 가진 치과 전문가 연수</span><span class="lang-en" style="display: none;">Training for licensed DDS/DMD and dental specialists with clinical experience.</span></p>
+                    </a>
+
+                    <a href="application.html?type=other" class="selection-card animate-on-scroll" data-delay="300">
+                        <i class="fas fa-stethoscope selection-icon"></i>
+                        <h3 class="selection-title"><span class="lang-ko">기타 의료인 (Other)</span><span class="lang-en" style="display: none;">Other Professional</span></h3>
+                        <p class="selection-description"><span class="lang-ko">간호사, 약사, 의료 기술직 등 기타 의료 전문가 연수</span><span class="lang-en" style="display: none;">Training for nurses, pharmacists, technicians, and other health professionals.</span></p>
+                    </a>
                 </div>
             </div>
         </section>
 
         <section class="features">
             <div class="container">
-                <h2 class="section-title">
+                <h2 class="section-title animate-on-scroll">
                     <span class="lang-ko">프로그램 특징</span>
                     <span class="lang-en" style="display: none;">Program Features</span>
                 </h2>
                 <div class="features-grid">
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll" data-delay="100">
                         <div class="feature-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
@@ -84,7 +102,7 @@
                             <span class="lang-en" style="display: none;">Learn directly from Korea's top medical professionals</span>
                         </p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll" data-delay="200">
                         <div class="feature-icon">
                             <i class="fas fa-microscope"></i>
                         </div>
@@ -97,7 +115,7 @@
                             <span class="lang-en" style="display: none;">Hands-on training with latest medical technology</span>
                         </p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card animate-on-scroll" data-delay="300">
                         <div class="feature-icon">
                             <i class="fas fa-globe"></i>
                         </div>
@@ -116,7 +134,7 @@
 
         <section class="stats">
             <div class="container">
-                <div class="stats-grid">
+                <div class="stats-grid animate-on-scroll">
                     <div class="stat-item">
                         <div class="stat-number">500+</div>
                         <div class="stat-label">
