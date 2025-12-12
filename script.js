@@ -460,3 +460,34 @@ document.querySelectorAll('.faq-question').forEach(button => {
         }
     });
 });
+
+// ===== 애니메이션 관찰자 (Intersection Observer) =====
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px' // 뷰포트 하단 50px 위에서 등장하도록 설정
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // .animate-on-scroll 클래스가 있는 요소에 fade-in-up 클래스 추가
+            entry.target.classList.add('fade-in-up');
+            // 한 번 등장하면 관찰 중단 (성능 최적화)
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// 관찰할 요소들 등록
+document.addEventListener('DOMContentLoaded', function() {
+    // 모든 카드와 주요 콘텐츠 블록에 'animate-on-scroll' 클래스를 CSS에서 설정했습니다.
+    const elementsToAnimate = document.querySelectorAll(
+        '.feature-card, .stat-item, .program-card, .benefit-card, .timeline-item, .contact-info, .contact-form, .info-box'
+    );
+    
+    elementsToAnimate.forEach(el => {
+        // 모든 요소에 기본 애니메이션 클래스 설정
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+    });
+});
