@@ -433,4 +433,30 @@ document.addEventListener('DOMContentLoaded', function() {
     elementsToAnimate.forEach(el => {
         observer.observe(el);
     });
+
+});
+// ===== FAQ 아코디언 기능 =====
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isActive = button.classList.contains('active');
+
+        // 다른 모든 FAQ 닫기
+        document.querySelectorAll('.faq-question').forEach(q => {
+            if (q !== button) {
+                q.classList.remove('active');
+                q.closest('.faq-item').querySelector('.faq-answer').style.maxHeight = 0;
+            }
+        });
+
+        // 현재 FAQ 토글
+        if (!isActive) {
+            button.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            button.classList.remove('active');
+            answer.style.maxHeight = 0;
+        }
+    });
 });
