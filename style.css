@@ -1,5 +1,8 @@
+/* ========================================================= */
+/* 1. CSS 변수 (기존 style.css의 내용) */
+/* ========================================================= */
 :root {
-    --primary-color: #6366f1;
+    --primary-color: #6366f1; /* 짙은 보라색/파랑 */
     --secondary-color: #4f46e5;
     --accent-color: #8b5cf6;
     --text-primary: #1f2937;
@@ -24,4 +27,983 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================================= */
+/* 2. 전역 스타일 및 타이포그래피 */
+/* ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif; /* Google Fonts와 Inter 폰트 적용 */
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-light);
+    padding-top: 6rem; /* 고정된 헤더 높이만큼 여백 확보 */
+    transition: var(--transition);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+.section-subtitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* ========================================================= */
+/* 3. 헤더 (기존 headerstyle.css 내용 통합) */
+/* ========================================================= */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.7); /* 기존 화이트 대신 border-color 변수 활용 */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    height: 6rem; /* 높이 설정 */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+}
+
+.logo i {
+    font-size: 2.25rem;
+    margin-right: 0.75rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 네비게이션 스타일 */
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.language-selector {
+    margin-left: 2rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.lang-btn.active {
+    background: var(--primary-color);
+    color: var(--background-white);
+    border-color: var(--primary-color);
+}
+
+.mobile-menu-toggle {
+    display: none; /* 데스크톱에서는 숨김 */
+}
+
+/* ========================================================= */
+/* 4. 공통 요소 (버튼, 섹션 여백) */
+/* ========================================================= */
+main section {
+    padding: 6rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius-full);
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: var(--shadow-heavy);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--background-white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--background-light);
+    transform: translateY(-2px);
+}
+
+/* ========================================================= */
+/* 5. 메인 페이지 (index.html) 스타일 */
+/* ========================================================= */
+
+/* Hero 섹션 */
+.hero {
+    background: linear-gradient(180deg, var(--background-light) 0%, var(--background-white) 100%);
+    padding: 8rem 0 6rem 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image i {
+    font-size: 10rem;
+    color: var(--primary-color);
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+/* Features 섹션 */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-title {
+    margin-bottom: 0.5rem;
+}
+
+/* Stats 섹션 */
+.stats {
+    background-color: var(--background-white);
+    padding: 4rem 0;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 1rem;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ========================================================= */
+/* 6. 폼 페이지 (application.html) 스타일 */
+/* ========================================================= */
+.application-hero, .program-hero, .contact-hero {
+    background: var(--primary-color);
+    color: white;
+    padding: 6rem 0 3rem 0;
+    margin-top: -6rem; /* 헤더와 겹치는 부분 제거 */
+}
+
+.application-title, .program-title, .contact-title {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.application-description, .program-description, .contact-description {
+    font-size: 1.1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.5rem;
+}
+
+.application-form {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+
+.form-container {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.application-form-element {
+    flex: 2;
+    background-color: var(--background-white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+}
+
+.form-info {
+    flex: 1;
+    padding-top: 2.5rem; /* 폼 섹션과 높이 맞추기 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    background-color: var(--background-light);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    outline: none;
+    background-color: var(--background-white);
+}
+
+.form-control.error {
+    border-color: var(--error-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.info-box {
+    background-color: var(--background-white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    border-left: 5px solid var(--primary-color);
+}
+
+.info-box h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.info-box ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+}
+.info-box li {
+    margin-bottom: 0.5rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* ========================================================= */
+/* 7. 프로그램 페이지 (program.html) 스타일 */
+/* ========================================================= */
+.program-overview {
+    padding-bottom: 3rem;
+}
+
+.overview-grid {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.overview-content {
+    flex: 2;
+}
+
+.overview-image {
+    flex: 1;
+    text-align: center;
+}
+.overview-image i {
+    font-size: 8rem;
+    color: var(--accent-color);
+    opacity: 0.5;
+}
+
+.overview-text {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.overview-features {
+    display: flex;
+    gap: 2rem;
+}
+
+.overview-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+.overview-item {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+.overview-item h4 {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.training-programs {
+    background-color: var(--background-white);
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.program-card {
+    background-color: var(--background-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    border-top: 5px solid var(--primary-color);
+}
+
+.program-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-5px);
+    border-top-color: var(--accent-color);
+}
+
+.program-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.program-name {
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.program-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.program-features {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.program-features li {
+    list-style: disc;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.program-duration {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.program-duration i {
+    margin-right: 0.5rem;
+}
+
+.training-process {
+    background-color: var(--background-white);
+    padding: 6rem 0;
+}
+
+.process-timeline {
+    position: relative;
+    padding: 2rem 0;
+    border-left: 3px solid var(--border-color);
+    margin-left: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-left: 2rem;
+    padding-bottom: 3rem;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -2.3rem;
+    top: 0;
+    width: 3rem;
+    height: 3rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: var(--shadow-medium);
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background-color: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.benefit-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.benefit-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+.benefit-card p {
+    color: var(--text-secondary);
+}
+
+.cta-section {
+    background: var(--gradient-primary);
+    padding: 4rem 0;
+    color: white;
+    text-align: center;
+    margin-bottom: -6rem; /* 푸터와 겹치는 부분 제거 */
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* ========================================================= */
+/* 8. 연락처 페이지 (contact.html) 스타일 */
+/* ========================================================= */
+.contact-content {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+
+.contact-grid {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: var(--background-white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    border-top: 5px solid var(--accent-color);
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    min-width: 2rem;
+}
+
+.info-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-primary);
+}
+
+.info-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.social-media {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.social-media h4 {
+    margin-bottom: 0.75rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+
+.contact-form-container {
+    flex: 2;
+}
+
+.contact-form {
+    background-color: var(--background-white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+}
+
+/* FAQ 섹션 */
+.faq-section {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+    background-color: var(--background-light);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--background-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: var(--background-light);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+/* FAQ: JS로 active 클래스가 추가된다고 가정 */
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: #fafcff;
+}
+
+.faq-answer p {
+    padding-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+/* ========================================================= */
+/* 9. 푸터 (Footer) 스타일 */
+/* ========================================================= */
+.footer {
+    background-color: var(--text-primary);
+    color: white;
+    padding: 4rem 0 1rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.footer-section p, .footer-section li {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--text-light);
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+
+/* ========================================================= */
+/* 10. 반응형 디자인 (모바일) */
+/* ========================================================= */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .nav {
+        display: none;
+        position: absolute;
+        top: 6rem; /* 헤더 높이만큼 아래로 */
+        left: 0;
+        right: 0;
+        background: var(--background-white);
+        box-shadow: var(--shadow-medium);
+        padding: 1rem 0;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1.5rem;
+        gap: 1rem;
+    }
+
+    .language-selector {
+        margin: 1rem 1.5rem 0;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .stats-grid {
+        flex-direction: column;
+    }
+    
+    .stat-item {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+
+    .form-container, .contact-grid {
+        flex-direction: column;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
 }
