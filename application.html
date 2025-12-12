@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application - Korean Medical Training Program</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-user-md"></i>
+                    <span>KMTP</span>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="program.html" class="nav-link">Program</a></li>
+                        <li><a href="application.html" class="nav-link active">Application</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="language-selector">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn active" data-lang="ko">KR</button>
+                    </div>
+                </nav>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="application-hero">
+            <div class="container">
+                <h1 class="application-title">
+                    <span class="lang-ko">연수 프로그램 지원</span>
+                    <span class="lang-en" style="display: none;">Training Program Application</span>
+                </h1>
+                <p class="application-description">
+                    <span class="lang-ko">한국의 우수한 의료 기술을 배우고자 하는 외국인 의사들을 위한 지원서입니다.</span>
+                    <span class="lang-en" style="display: none;">Application for international doctors who want to learn Korea's excellent medical technology.</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="application-form">
+            <div class="container">
+                <div class="form-container">
+                    <form id="applicationForm" class="application-form-element">
+                        <div class="form-section">
+                            <h3 class="section-subtitle">
+                                <span class="lang-ko">개인 정보</span>
+                                <span class="lang-en" style="display: none;">Personal Information</span>
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label for="name" class="form-label">
+                                    <span class="lang-ko">성명 *</span>
+                                    <span class="lang-en" style="display: none;">Full Name *</span>
+                                </label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                                <div class="error-message" id="nameError"></div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
+                                        <span class="lang-ko">이메일 *</span>
+                                        <span class="lang-en" style="display: none;">Email *</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                    <div class="error-message" id="emailError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationality" class="form-label">
+                                        <span class="lang-ko">국적 *</span>
+                                        <span class="lang-en" style="display: none;">Nationality *</span>
+                                    </label>
+                                    <select id="nationality" name="nationality" class="form-control" required>
+                                        <option value="">
+                                            <span class="lang-ko">선택하세요</span>
+                                            <span class="lang-en" style="display: none;">Please select</span>
+                                        </option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="CN">China</option>
+                                        <option value="IN">India</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="MX">Mexico</option>
+                                        <option value="RU">Russia</option>
+                                        <option value="OTHER">
+                                            <span class="lang-ko">기타</span>
+                                            <span class="lang-en" style="display: none;">Other</span>
+                                        </option>
+                                    </select>
+                                    <div class="error-message" id="nationalityError"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-subtitle">
+                                <span class="lang-ko">의사 자격 정보</span>
+                                <span class="lang-en" style="display: none;">Medical License Information</span>
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="medicalLicense" class="form-label">
+                                        <span class="lang-ko">의사 면허 번호 *</span>
+                                        <span class="lang-en" style="display: none;">Medical License Number *</span>
+                                    </label>
+                                    <input type="text" id="medicalLicense" name="medicalLicense" class="form-control" required>
+                                    <div class="error-message" id="medicalLicenseError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="specialization" class="form-label">
+                                        <span class="lang-ko">전문 분야 *</span>
+                                        <span class="lang-en" style="display: none;">Specialization *</span>
+                                    </label>
+                                    <select id="specialization" name="specialization" class="form-control" required>
+                                        <option value="">
+                                            <span class="lang-ko">선택하세요</span>
+                                            <span class="lang-en" style="display: none;">Please select</span>
+                                        </option>
+                                        <option value="INTERNAL_MEDICINE">
+                                            <span class="lang-ko">내과</span>
+                                            <span class="lang-en" style="display: none;">Internal Medicine</span>
+                                        </option>
+                                        <option value="SURGERY">
+                                            <span class="lang-ko">외과</span>
+                                            <span class="lang-en" style="display: none;">Surgery</span>
+                                        </option>
+                                        <option value="PEDIATRICS">
+                                            <span class="lang-ko">소아과</span>
+                                            <span class="lang-en" style="display: none;">Pediatrics</span>
+                                        </option>
+                                        <option value="OBSTETRICS">
+                                            <span class="lang-ko">산부인과</span>
+                                            <span class="lang-en" style="display: none;">Obstetrics & Gynecology</span>
+                                        </option>
+                                        <option value="CARDIOLOGY">
+                                            <span class="lang-ko">심장학</span>
+                                            <span class="lang-en" style="display: none;">Cardiology</span>
+                                        </option>
+                                        <option value="NEUROLOGY">
+                                            <span class="lang-ko">신경학</span>
+                                            <span class="lang-en" style="display: none;">Neurology</span>
+                                        </option>
+                                        <option value="ONCOLOGY">
+                                            <span class="lang-ko">종양학</span>
+                                            <span class="lang-en" style="display: none;">Oncology</span>
+                                        </option>
+                                        <option value="OTHER">
+                                            <span class="lang-ko">기타</span>
+                                            <span class="lang-en" style="display: none;">Other</span>
+                                        </option>
+                                    </select>
+                                    <div class="error-message" id="specializationError"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="hospital" class="form-label">
+                                        <span class="lang-ko">현재 근무 병원 *</span>
+                                        <span class="lang-en" style="display: none;">Current Hospital *</span>
+                                    </label>
+                                    <input type="text" id="hospital" name="hospital" class="form-control" required>
+                                    <div class="error-message" id="hospitalError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="experienceYears" class="form-label">
+                                        <span class="lang-ko">경력 (년) *</span>
+                                        <span class="lang-en" style="display: none;">Experience (Years) *</span>
+                                    </label>
+                                    <input type="number" id="experienceYears" name="experienceYears" min="0" max="50" class="form-control" required>
+                                    <div class="error-message" id="experienceYearsError"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-subtitle">
+                                <span class="lang-ko">연수 프로그램 선택</span>
+                                <span class="lang-en" style="display: none;">Training Program Selection</span>
+                            </h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="preferredProgram" class="form-label">
+                                        <span class="lang-ko">희망 연수 분야 *</span>
+                                        <span class="lang-en" style="display: none;">Preferred Training Program *</span>
+                                    </label>
+                                    <select id="preferredProgram" name="preferredProgram" class="form-control" required>
+                                        <option value="">
+                                            <span class="lang-ko">선택하세요</span>
+                                            <span class="lang-en" style="display: none;">Please select</span>
+                                        </option>
+                                        <option value="CARDIAC_SURGERY">
+                                            <span class="lang-ko">심장 외과</span>
+                                            <span class="lang-en" style="display: none;">Cardiac Surgery</span>
+                                        </option>
+                                        <option value="NEUROSURGERY">
+                                            <span class="lang-ko">신경 외과</span>
+                                            <span class="lang-en" style="display: none;">Neurosurgery</span>
+                                        </option>
+                                        <option value="PLASTIC_SURGERY">
+                                            <span class="lang-ko">성형 외과</span>
+                                            <span class="lang-en" style="display: none;">Plastic Surgery</span>
+                                        </option>
+                                        <option value="GASTROENTEROLOGY">
+                                            <span class="lang-ko">소화기내과</span>
+                                            <span class="lang-en" style="display: none;">Gastroenterology</span>
+                                        </option>
+                                        <option value="RADIOLOGY">
+                                            <span class="lang-ko">영상의학</span>
+                                            <span class="lang-en" style="display: none;">Radiology</span>
+                                        </option>
+                                        <option value="EMERGENCY_MEDICINE">
+                                            <span class="lang-ko">응급의학</span>
+                                            <span class="lang-en" style="display: none;">Emergency Medicine</span>
+                                        </option>
+                                    </select>
+                                    <div class="error-message" id="preferredProgramError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration" class="form-label">
+                                        <span class="lang-ko">연수 기간 *</span>
+                                        <span class="lang-en" style="display: none;">Training Duration *</span>
+                                    </label>
+                                    <select id="duration" name="duration" class="form-control" required>
+                                        <option value="">
+                                            <span class="lang-ko">선택하세요</span>
+                                            <span class="lang-en" style="display: none;">Please select</span>
+                                        </option>
+                                        <option value="3months">
+                                            <span class="lang-ko">3개월</span>
+                                            <span class="lang-en" style="display: none;">3 Months</span>
+                                        </option>
+                                        <option value="6months">
+                                            <span class="lang-ko">6개월</span>
+                                            <span class="lang-en" style="display: none;">6 Months</span>
+                                        </option>
+                                        <option value="1year">
+                                            <span class="lang-ko">1년</span>
+                                            <span class="lang-en" style="display: none;">1 Year</span>
+                                        </option>
+                                    </select>
+                                    <div class="error-message" id="durationError"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="koreanLevel" class="form-label">
+                                    <span class="lang-ko">한국어 수준 *</span>
+                                    <span class="lang-en" style="display: none;">Korean Language Level *</span>
+                                </label>
+                                <select id="koreanLevel" name="koreanLevel" class="form-control" required>
+                                    <option value="">
+                                        <span class="lang-ko">선택하세요</span>
+                                        <span class="lang-en" style="display: none;">Please select</span>
+                                    </option>
+                                    <option value="beginner">
+                                        <span class="lang-ko">초급</span>
+                                        <span class="lang-en" style="display: none;">Beginner</span>
+                                    </option>
+                                    <option value="intermediate">
+                                        <span class="lang-ko">중급</span>
+                                        <span class="lang-en" style="display: none;">Intermediate</span>
+                                    </option>
+                                    <option value="advanced">
+                                        <span class="lang-ko">고급</span>
+                                        <span class="lang-en" style="display: none;">Advanced</span>
+                                    </option>
+                                    <option value="none">
+                                        <span class="lang-ko">없음</span>
+                                        <span class="lang-en" style="display: none;">None</span>
+                                    </option>
+                                </select>
+                                <div class="error-message" id="koreanLevelError"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-subtitle">
+                                <span class="lang-ko">지원 동기</span>
+                                <span class="lang-en" style="display: none;">Application Motivation</span>
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">
+                                    <span class="lang-ko">지원 동기 및 메시지</span>
+                                    <span class="lang-en" style="display: none;">Application Motivation and Message</span>
+                                </label>
+                                <textarea id="message" name="message" rows="6" class="form-control" 
+                                    placeholder="지원 동기, 연수 목표, 한국 의료 기술에 대한 관심 등을 자유롭게 작성해 주세요."></textarea>
+                                <div class="error-message" id="messageError"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-subtitle">
+                                <span class="lang-ko">파일 첨부</span>
+                                <span class="lang-en" style="display: none;">File Attachments</span>
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label for="resume" class="form-label">
+                                    <span class="lang-ko">이력서 (PDF)</span>
+                                    <span class="lang-en" style="display: none;">Resume (PDF)</span>
+                                </label>
+                                <input type="file" id="resume" name="resume" class="form-control" accept=".pdf">
+                                <div class="error-message" id="resumeError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="certificates" class="form-label">
+                                    <span class="lang-ko">자격증 사본 (PDF)</span>
+                                    <span class="lang-en" style="display: none;">License Certificate (PDF)</span>
+                                </label>
+                                <input type="file" id="certificates" name="certificates" class="form-control" accept=".pdf">
+                                <div class="error-message" id="certificatesError"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <span class="lang-ko">지원서 제출</span>
+                                <span class="lang-en" style="display: none;">Submit Application</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                                <span class="lang-ko">초기화</span>
+                                <span class="lang-en" style="display: none;">Reset</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="form-info">
+                        <div class="info-box">
+                            <h4>
+                                <span class="lang-ko">지원 자격</span>
+                                <span class="lang-en" style="display: none;">Eligibility</span>
+                            </h4>
+                            <ul>
+                                <li>
+                                    <span class="lang-ko">의사 면허 소지자</span>
+                                    <span class="lang-en" style="display: none;">Licensed medical doctor</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko">2년 이상의 임상 경력</span>
+                                    <span class="lang-en" style="display: none;">Minimum 2 years clinical experience</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko">영어 또는 한국어 능력</span>
+                                    <span class="lang-en" style="display: none;">English or Korean language proficiency</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h4>
+                                <span class="lang-ko">제출 서류</span>
+                                <span class="lang-en" style="display: none;">Required Documents</span>
+                            </h4>
+                            <ul>
+                                <li>
+                                    <span class="lang-ko">이력서 (CV)</span>
+                                    <span class="lang-en" style="display: none;">Resume (CV)</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko">의사 면허증 사본</span>
+                                    <span class="lang-en" style="display: none;">Medical license copy</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ko">추천서 (선택사항)</span>
+                                    <span class="lang-en" style="display: none;">Recommendation letter (optional)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>KMTP</h4>
+                    <p>
+                        <span class="lang-ko">한국 의료 연수 프로그램</span>
+                        <span class="lang-en" style="display: none;">Korean Medical Training Program</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="lang-ko">연락처</span>
+                        <span class="lang-en" style="display: none;">Contact</span>
+                    </h4>
+                    <p>Email: info@kmtp.or.kr</p>
+                    <p>Phone: +82-2-1234-5678</p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="lang-ko">빠른 링크</span>
+                        <span class="lang-en" style="display: none;">Quick Links</span>
+                    </h4>
+                    <ul>
+                        <li><a href="program.html">
+                            <span class="lang-ko">프로그램 소개</span>
+                            <span class="lang-en" style="display: none;">Program Info</span>
+                        </a></li>
+                        <li><a href="application.html">
+                            <span class="lang-ko">온라인 지원</span>
+                            <span class="lang-en" style="display: none;">Online Application</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KMTP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

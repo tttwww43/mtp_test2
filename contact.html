@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Korean Medical Training Program</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body id="contact">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-user-md"></i>
+                    <span>KMTP</span>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="program.html" class="nav-link">Program</a></li>
+                        <li><a href="application.html" class="nav-link">Application</a></li>
+                        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    </ul>
+                    <div class="language-selector">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn active" data-lang="ko">KR</button>
+                    </div>
+                </nav>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="contact-title">
+                    <span class="lang-ko">연락처</span>
+                    <span class="lang-en" style="display: none;">Contact Us</span>
+                </h1>
+                <p class="contact-description">
+                    <span class="lang-ko">궁금하신 점이 있으시면 언제든지 문의해 주세요.</span>
+                    <span class="lang-en" style="display: none;">Please feel free to contact us if you have any questions.</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2 class="section-subtitle">
+                            <span class="lang-ko">연락 정보</span>
+                            <span class="lang-en" style="display: none;">Contact Information</span>
+                        </h2>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>
+                                    <span class="lang-ko">주소</span>
+                                    <span class="lang-en" style="display: none;">Address</span>
+                                </h4>
+                                <p>서울특별시 강남구 테헤란로 123<br>KMTP 센터</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>
+                                    <span class="lang-ko">전화</span>
+                                    <span class="lang-en" style="display: none;">Phone</span>
+                                </h4>
+                                <p>+82-2-1234-5678<br>
+                                <small>
+                                    <span class="lang-ko">평일 9:00 - 18:00</span>
+                                    <span class="lang-en" style="display: none;">Weekdays 9:00 - 18:00</span>
+                                </small></p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <p>info@kmtp.or.kr<br>
+                                <small>admin@kmtp.or.kr</small></p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>
+                                    <span class="lang-ko">웹사이트</span>
+                                    <span class="lang-en" style="display: none;">Website</span>
+                                </h4>
+                                <p>www.kmtp.or.kr</p>
+                            </div>
+                        </div>
+
+                        <div class="social-media">
+                            <h4>
+                                <span class="lang-ko">소셜 미디어</span>
+                                <span class="lang-en" style="display: none;">Social Media</span>
+                            </h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h2 class="section-subtitle">
+                            <span class="lang-ko">문의하기</span>
+                            <span class="lang-en" style="display: none;">Send Message</span>
+                        </h2>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName" class="form-label">
+                                        <span class="lang-ko">성명 *</span>
+                                        <span class="lang-en" style="display: none;">Name *</span>
+                                    </label>
+                                    <input type="text" id="contactName" name="contactName" class="form-control" required>
+                                    <div class="error-message" id="contactNameError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail" class="form-label">
+                                        <span class="lang-ko">이메일 *</span>
+                                        <span class="lang-en" style="display: none;">Email *</span>
+                                    </label>
+                                    <input type="email" id="contactEmail" name="contactEmail" class="form-control" required>
+                                    <div class="error-message" id="contactEmailError"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject" class="form-label">
+                                    <span class="lang-ko">제목 *</span>
+                                    <span class="lang-en" style="display: none;">Subject *</span>
+                                </label>
+                                <input type="text" id="contactSubject" name="contactSubject" class="form-control" required>
+                                <div class="error-message" id="contactSubjectError"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage" class="form-label">
+                                    <span class="lang-ko">메시지 *</span>
+                                    <span class="lang-en" style="display: none;">Message *</span>
+                                </label>
+                                <textarea id="contactMessage" name="contactMessage" rows="6" class="form-control" required></textarea>
+                                <div class="error-message" id="contactMessageError"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <span class="lang-ko">메시지 보내기</span>
+                                <span class="lang-en" style="display: none;">Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="lang-ko">자주 묻는 질문</span>
+                    <span class="lang-en" style="display: none;">Frequently Asked Questions</span>
+                </h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="lang-ko">지원 자격은 무엇인가요?</span>
+                            <span class="lang-en" style="display: none;">What are the application requirements?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <span class="lang-ko">의사 면허를 소지하고 2년 이상의 임상 경력이 있으신 분이면 지원 가능합니다. 영어 또는 한국어로 의료 관련 의사소통이 가능해야 합니다.</span>
+                                <span class="lang-en" style="display: none;">You must have a medical license and at least 2 years of clinical experience. You should be able to communicate in English or Korean for medical purposes.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="lang-ko">연수 기간은 얼마나 되나요?</span>
+                            <span class="lang-en" style="display: none;">How long is the training period?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <span class="lang-ko">3개월, 6개월, 1년 프로그램이 있으며, 본인의 상황에 맞게 선택하실 수 있습니다.</span>
+                                <span class="lang-en" style="display: none;">We offer 3-month, 6-month, and 1-year programs, and you can choose according to your situation.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="lang-ko">연수 비용은 얼마인가요?</span>
+                            <span class="lang-en" style="display: none;">What is the training cost?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <span class="lang-ko">연수는 무료이며, 숙소도 제공됩니다. 다만 왕복 항공료와 생활비는 본인이 부담해야 합니다.</span>
+                                <span class="lang-en" style="display: none;">The training is free and accommodation is provided. However, you are responsible for round-trip airfare and living expenses.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="lang-ko">한국어를 못해도 괜찮나요?</span>
+                            <span class="lang-en" style="display: none;">Is it okay if I can't speak Korean?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <span class="lang-ko">네, 영어로도 충분히 연수가 가능합니다. 다만 기본적인 한국어 수업도 제공됩니다.</span>
+                                <span class="lang-en" style="display: none;">Yes, training is fully possible in English. Basic Korean language classes are also provided.</span>
+                            </p>
+                        </div>
+                    </n                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span class="lang-ko">지원서는 언제까지 제출해야 하나요?</span>
+                            <span class="lang-en" style="display: none;">When is the application deadline?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <span class="lang-ko">매년 3월과 9월 시작하는 프로그램에 대해 각각 6개월 전까지 지원서를 제출해야 합니다.</span>
+                                <span class="lang-en" style="display: none;">Applications must be submitted 6 months in advance for programs starting in March and September each year.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>KMTP</h4>
+                    <p>
+                        <span class="lang-ko">한국 의료 연수 프로그램</span>
+                        <span class="lang-en" style="display: none;">Korean Medical Training Program</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="lang-ko">연락처</span>
+                        <span class="lang-en" style="display: none;">Contact</span>
+                    </h4>
+                    <p>Email: info@kmtp.or.kr</p>
+                    <p>Phone: +82-2-1234-5678</p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="lang-ko">빠른 링크</span>
+                        <span class="lang-en" style="display: none;">Quick Links</span>
+                    </h4>
+                    <ul>
+                        <li><a href="program.html">
+                            <span class="lang-ko">프로그램 소개</span>
+                            <span class="lang-en" style="display: none;">Program Info</span>
+                        </a></li>
+                        <li><a href="application.html">
+                            <span class="lang-ko">온라인 지원</span>
+                            <span class="lang-en" style="display: none;">Online Application</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KMTP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
