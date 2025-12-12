@@ -1,5 +1,5 @@
 /* ========================================================= */
-/* 1. CSS 변수 (전문적이고 깨끗한 스타일 - MKA-Eclass 톤) */
+/* 1. CSS 변수 및 애니메이션 키프레임 (업그레이드) */
 /* ========================================================= */
 :root {
     --primary-color: #1e3a8a; /* 깊은 전문적인 블루 (메인 색상) */
@@ -21,8 +21,8 @@
     
     --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.08);
-    --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.15); /* 더 입체적인 그림자 */
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
     
     --border-radius: 8px; 
     --border-radius-large: 16px;
@@ -30,6 +30,26 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* 등장 애니메이션 키프레임 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* 마우스 호버 시 펄스 효과 키프레임 */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 
 /* ========================================================= */
 /* 2. 전역 스타일 및 타이포그래피 */
@@ -190,7 +210,7 @@ main section {
 }
 
 /* ========================================================= */
-/* 4. 공통 요소 (버튼) */
+/* 4. 공통 요소 (버튼, 등장 애니메이션) */
 /* ========================================================= */
 
 .btn {
@@ -213,7 +233,7 @@ main section {
 .btn-primary:hover {
     background: var(--secondary-color); 
     box-shadow: var(--shadow-medium);
-    transform: translateY(-2px);
+    transform: translateY(-3px); /* 1px 더 크게 들어올림 */
 }
 
 .btn-secondary {
@@ -227,6 +247,18 @@ main section {
     color: var(--background-white);
     border-color: var(--primary-color);
     transform: translateY(-2px);
+}
+
+/* 스크롤 시 부드러운 등장 효과를 위한 기본 설정 */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.fade-in-up {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 
 /* ========================================================= */
@@ -297,8 +329,8 @@ main section {
 }
 
 .feature-card:hover {
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-3px); 
+    box-shadow: var(--shadow-heavy); /* 호버 시 그림자 강하게 */
+    transform: translateY(-8px); /* 더 높이 들어올림 */
     border-color: var(--secondary-color);
 }
 
@@ -308,6 +340,7 @@ main section {
     -webkit-text-fill-color: initial;
     background-clip: initial;
     margin-bottom: 1rem;
+    animation: pulse 4s infinite ease-in-out; /* 은은한 펄스 효과 추가 */
 }
 
 .feature-title {
@@ -340,6 +373,13 @@ main section {
     background-clip: initial;
     line-height: 1;
     margin-bottom: 0.5rem;
+    
+    /* 숫자 카운트업 효과를 위해 애니메이션 준비 (JS와 함께 사용) */
+    transition: color 0.5s;
+}
+
+.stat-number:hover {
+    color: var(--secondary-color);
 }
 
 .stat-label {
@@ -571,8 +611,8 @@ main section {
 }
 
 .program-card:hover {
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy); /* 호버 시 그림자 강하게 */
+    transform: translateY(-8px); /* 더 높이 들어올림 */
     border-top-color: var(--primary-color);
 }
 
@@ -630,7 +670,19 @@ main section {
     position: relative;
     margin-left: 2rem;
     padding-bottom: 3rem;
+    
+    /* 타임라인 항목도 스크롤 애니메이션 적용 */
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+/* 타임라인 항목 등장 효과 */
+.timeline-item.fade-in-up {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
 
 .timeline-icon {
     position: absolute;
@@ -676,7 +728,7 @@ main section {
 
 .benefit-card:hover {
     box-shadow: var(--shadow-medium);
-    transform: translateY(-3px);
+    transform: translateY(-5px); /* 살짝 더 들어올림 */
 }
 
 .benefit-icon {
