@@ -1,5 +1,5 @@
 /* ========================================================= */
-/* 1. CSS 변수 및 애니메이션 키프레임 (업그레이드) */
+/* 1. CSS 변수 및 애니메이션 키프레임 (KMTP 청색 + 인터랙티브) */
 /* ========================================================= */
 :root {
     --primary-color: #1e3a8a; /* 깊은 전문적인 블루 (메인 색상) */
@@ -21,7 +21,7 @@
     
     --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.08);
-    --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.15); /* 더 입체적인 그림자 */
+    --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.15); /* 호버 시 입체적인 그림자 */
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
     
     --border-radius: 8px; 
@@ -45,11 +45,10 @@
 
 /* 마우스 호버 시 펄스 효과 키프레임 */
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
-
 
 /* ========================================================= */
 /* 2. 전역 스타일 및 타이포그래피 */
@@ -233,7 +232,7 @@ main section {
 .btn-primary:hover {
     background: var(--secondary-color); 
     box-shadow: var(--shadow-medium);
-    transform: translateY(-3px); /* 1px 더 크게 들어올림 */
+    transform: translateY(-3px); 
 }
 
 .btn-secondary {
@@ -265,54 +264,102 @@ main section {
 /* 5. 메인 페이지 (index.html) 스타일 */
 /* ========================================================= */
 
-/* Hero 섹션 */
-.hero {
-    background: var(--background-white); 
-    padding: 8rem 0 6rem 0;
-}
-
-.hero .container {
+/* Hero Landing (Full-Screen UX) */
+.hero-landing {
+    background: var(--background-white);
     display: flex;
     align-items: center;
-    gap: 4rem;
+    justify-content: center;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: pointer; /* 클릭 유도 */
+    margin-top: -6rem; /* 헤더 공간 메움 */
 }
 
-.hero-content {
-    flex: 1;
-}
-
-.hero-title {
+.hero-landing .hero-title {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     color: var(--primary-color); 
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
+    /* 애니메이션 지연을 위해 transition 제거 */
+    transition: none;
 }
 
-.hero-description {
+.hero-landing .hero-description {
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
+    transition: none;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
+.hero-scroll-cue {
+    margin-top: 3rem;
+    color: var(--text-secondary);
+    transition: none;
 }
 
-.hero-image {
-    flex: 1;
-    text-align: center;
-}
-
-.hero-image i {
-    font-size: 10rem;
+.scroll-down-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 1rem;
     color: var(--secondary-color);
-    opacity: 0.7;
-    animation: none; 
+    animation: pulse 1.5s infinite; /* 펄스 효과 적용 */
 }
 
-/* Features 섹션 */
+/* Application Selection Section */
+.application-selection {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--background-light);
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.selection-card {
+    display: block;
+    background-color: var(--background-white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-light);
+    border-top: 5px solid var(--secondary-color);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.selection-card:hover {
+    box-shadow: var(--shadow-heavy);
+    transform: translateY(-8px);
+    border-top-color: var(--primary-color);
+}
+
+.selection-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.selection-card:hover .selection-icon {
+    color: var(--secondary-color);
+}
+
+.selection-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.selection-description {
+    color: var(--text-secondary);
+}
+
+
+/* Features Section (Original) */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -329,18 +376,16 @@ main section {
 }
 
 .feature-card:hover {
-    box-shadow: var(--shadow-heavy); /* 호버 시 그림자 강하게 */
-    transform: translateY(-8px); /* 더 높이 들어올림 */
+    box-shadow: var(--shadow-heavy);
+    transform: translateY(-8px); 
     border-color: var(--secondary-color);
 }
 
 .feature-icon {
     font-size: 2.5rem;
     color: var(--secondary-color);
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
     margin-bottom: 1rem;
-    animation: pulse 4s infinite ease-in-out; /* 은은한 펄스 효과 추가 */
+    animation: pulse 4s infinite ease-in-out; 
 }
 
 .feature-title {
@@ -369,12 +414,8 @@ main section {
     font-size: 3rem;
     font-weight: 700;
     color: var(--primary-color);
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
     line-height: 1;
     margin-bottom: 0.5rem;
-    
-    /* 숫자 카운트업 효과를 위해 애니메이션 준비 (JS와 함께 사용) */
     transition: color 0.5s;
 }
 
@@ -728,7 +769,7 @@ main section {
 
 .benefit-card:hover {
     box-shadow: var(--shadow-medium);
-    transform: translateY(-5px); /* 살짝 더 들어올림 */
+    transform: translateY(-5px); 
 }
 
 .benefit-icon {
@@ -1062,5 +1103,10 @@ main section {
     /* 푸터 */
     .footer-content {
         flex-direction: column;
+    }
+    
+    /* Application Selection */
+    .selection-grid {
+        grid-template-columns: 1fr;
     }
 }
