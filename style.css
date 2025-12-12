@@ -1,5 +1,5 @@
 /* ========================================================= */
-/* 1. CSS 변수 및 애니메이션 키프레임 (KMTP 청색 + 인터랙티브) */
+/* 1. CSS 변수 및 애니메이션 키프레임 (KMTP 청색 + 인터랙티브 + 세련됨) */
 /* ========================================================= */
 :root {
     --primary-color: #1e3a8a; /* 깊은 전문적인 블루 (메인 색상) */
@@ -8,7 +8,7 @@
     --text-primary: #1f2937; 
     --text-secondary: #4b5563; 
     --text-light: #9ca3af;
-    --background-light: #f4f7f9; 
+    --background-light: #f9f9fa; /* 더 깔끔하고 밝은 배경 (Apple/Kakao Pay) */
     --background-white: #ffffff;
     --border-color: #e5e7eb;
     --success-color: #10b981;
@@ -24,8 +24,8 @@
     --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.15); /* 호버 시 입체적인 그림자 */
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
     
-    --border-radius: 8px; 
-    --border-radius-large: 16px;
+    --border-radius: 12px; /* 모서리를 부드럽게 (Kakao Pay 스타일) */
+    --border-radius-large: 20px; /* 선택 카드 등 큰 모서리 */
     --border-radius-full: 9999px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -51,7 +51,7 @@
 }
 
 /* ========================================================= */
-/* 2. 전역 스타일 및 타이포그래피 */
+/* 2. 전역 스타일 및 타이포그래피 (Apple/Toss 스타일) */
 /* ========================================================= */
 * {
     box-sizing: border-box;
@@ -88,24 +88,24 @@ h1, h2, h3 {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px; /* 최대 너비를 넓혀 시원하게 (Toss/Apple) */
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 main section {
-    padding: 6rem 0;
+    padding: 8rem 0; /* 섹션 간격 대폭 증가 (여백 강조) */
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3rem; /* 제목 크기 키움 (Toss) */
     font-weight: 700;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem; /* 여백 증가 */
     color: var(--text-primary);
 }
 .section-subtitle {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
@@ -264,7 +264,7 @@ main section {
 /* 5. 메인 페이지 (index.html) 스타일 */
 /* ========================================================= */
 
-/* Hero Landing (Full-Screen UX) */
+/* Hero Landing (Full-Screen UX - Apple/Toss 스타일) */
 .hero-landing {
     background: var(--background-white);
     display: flex;
@@ -273,22 +273,22 @@ main section {
     text-align: center;
     padding-top: 0;
     padding-bottom: 0;
-    cursor: pointer; /* 클릭 유도 */
-    margin-top: -6rem; /* 헤더 공간 메움 */
+    cursor: pointer; 
+    margin-top: -6rem; 
 }
 
 .hero-landing .hero-title {
-    font-size: 3.5rem;
+    font-size: 4.5rem; /* 가장 중요한 제목 크기 극대화 (Toss/Apple) */
     margin-bottom: 1.5rem;
     color: var(--primary-color); 
-    /* 애니메이션 지연을 위해 transition 제거 */
     transition: none;
 }
 
 .hero-landing .hero-description {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
     transition: none;
 }
 
@@ -306,10 +306,10 @@ main section {
     animation: pulse 1.5s infinite; /* 펄스 효과 적용 */
 }
 
-/* Application Selection Section */
+/* Application Selection Section (지원 유형 선택) */
 .application-selection {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     background-color: var(--background-light);
 }
 
@@ -317,14 +317,14 @@ main section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .selection-card {
     display: block;
     background-color: var(--background-white);
-    padding: 2.5rem;
-    border-radius: var(--border-radius-large);
+    padding: 3rem;
+    border-radius: var(--border-radius-large); /* 더 큰 모서리 */
     box-shadow: var(--shadow-light);
     border-top: 5px solid var(--secondary-color);
     text-align: center;
@@ -332,13 +332,13 @@ main section {
 }
 
 .selection-card:hover {
-    box-shadow: var(--shadow-heavy);
-    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl); /* 그림자를 더 강하게 */
+    transform: translateY(-12px); /* 더 높이 떠오르도록 */
     border-top-color: var(--primary-color);
 }
 
 .selection-icon {
-    font-size: 3.5rem;
+    font-size: 4rem; /* 아이콘 크기 키움 */
     color: var(--primary-color);
     margin-bottom: 1rem;
     transition: var(--transition);
@@ -349,7 +349,7 @@ main section {
 }
 
 .selection-title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
@@ -1063,18 +1063,16 @@ main section {
     }
 
     /* 메인 페이지 */
-    .hero .container {
-        flex-direction: column;
-        text-align: center;
+    .hero-landing {
+        min-height: auto !important; /* 모바일에서 전체 화면 강제 해제 */
     }
-    
-    .hero-image {
-        order: -1;
-        margin-bottom: 2rem;
+
+    .hero-landing .hero-title {
+        font-size: 2.8rem;
     }
-    
-    .hero-title {
-        font-size: 2.5rem;
+
+    .hero-landing .hero-description {
+        font-size: 1.2rem;
     }
     
     .stats-grid {
