@@ -1,31 +1,29 @@
 /* ========================================================= */
-/* 1. CSS 변수 및 애니메이션 키프레임 (KMTP 청색 + 인터랙티브 + 세련됨) */
+/* 1. CSS 변수 및 애니메이션 키프레임 (KHIDI CI 주황색/회색 반영) */
 /* ========================================================= */
 :root {
-    --primary-color: #1e3a8a; /* 깊은 전문적인 블루 (메인 색상) */
-    --secondary-color: #03a9f4; /* 밝은 강조 블루 (포인트 색상) */
-    --accent-color: #03a9f4; 
-    --text-primary: #1f2937; 
+    --primary-color: #555555; /* KHIDI CI - 깊은 회색 (메인 색상, Toss Dark 대신 사용) */
+    --secondary-color: #FF6B00; /* KHIDI CI - 주황색 (강조/포인트 색상) */
+    --accent-color: #FF6B00; 
+    --text-primary: #111827; /* 짙은 텍스트 (가독성 유지) */
     --text-secondary: #4b5563; 
     --text-light: #9ca3af;
-    --background-light: #f9f9fa; /* 더 깔끔하고 밝은 배경 (Apple/Kakao Pay) */
+    --background-light: #F8F9FA; 
     --background-white: #ffffff;
-    --border-color: #e5e7eb;
+    --border-color: #E5E7EB;
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
     
-    --gradient-primary: var(--primary-color); 
-    --gradient-secondary: var(--secondary-color);
-    --gradient-accent: var(--accent-color);
+    --background-subtle-gradient: none;
     
-    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.08);
-    --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.15); /* 호버 시 입체적인 그림자 */
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.08);
+    --shadow-heavy: 0 16px 32px rgba(0, 0, 0, 0.1); 
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.15);
     
-    --border-radius: 16px; /* 모서리를 부드럽게 (Kakao Pay 스타일) */
-    --border-radius-large: 28px; /* 선택 카드 등 큰 모서리 더 부드럽게 */
+    --border-radius: 20px; 
+    --border-radius-large: 32px; 
     --border-radius-full: 9999px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -43,7 +41,7 @@
     }
 }
 
-/* 마우스 호버 시 펄스 효과 키프레임 */
+/* 마우스 호버 시 펄스 효과 키프레임 (아이콘용) */
 @keyframes pulse {
     0% { opacity: 1; }
     50% { opacity: 0.8; }
@@ -51,7 +49,7 @@
 }
 
 /* ========================================================= */
-/* 2. 전역 스타일 및 타이포그래피 (Apple/Toss 스타일) */
+/* 2. 전역 스타일 및 타이포그래피 (Toss 스타일) */
 /* ========================================================= */
 * {
     box-sizing: border-box;
@@ -84,35 +82,35 @@ ul {
 
 h1, h2, h3 {
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 800; /* 더 대담하게 */
 }
 
 .container {
-    max-width: 1300px; /* 최대 너비를 넓혀 시원하게 (Toss/Apple) */
+    max-width: 1300px; 
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 main section {
-    padding: 10rem 0; /* 섹션 간격 대폭 증가 (여백 강조) */
+    padding: 12rem 0; /* 여백을 TOSS 수준으로 대폭 증가 */
 }
 
 .section-title {
-    font-size: 3rem; /* 제목 크기 키움 (Toss) */
-    font-weight: 700;
+    font-size: 3.5rem; /* 제목 크기 키움 */
+    font-weight: 800;
     text-align: center;
-    margin-bottom: 4rem; /* 여백 증가 */
+    margin-bottom: 5rem; /* 여백 증가 */
     color: var(--text-primary);
 }
 .section-subtitle {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
 }
 
 /* ========================================================= */
-/* 3. 헤더 (MKA-Eclass 스타일) */
+/* 3. 헤더 (CI 색상 사용) */
 /* ========================================================= */
 .header {
     background: var(--background-white);
@@ -123,7 +121,7 @@ main section {
     right: 0;
     z-index: 1000;
     transition: var(--transition);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none; /* 깔끔함 강조 */
 }
 
 .header-content {
@@ -138,15 +136,15 @@ main section {
     display: flex;
     align-items: center;
     font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary-color); 
+    font-weight: 800; 
+    color: var(--primary-color); /* 회색 기반 */
     letter-spacing: -0.025em;
 }
 
 .logo i {
     font-size: 2.25rem;
     margin-right: 0.75rem;
-    color: var(--secondary-color); 
+    color: var(--secondary-color); /* 주황색 포인트 */
 }
 
 /* 네비게이션 스타일 */
@@ -157,7 +155,7 @@ main section {
 
 .nav-link {
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.5rem 0;
     position: relative;
 }
@@ -168,7 +166,7 @@ main section {
 
 .nav-link.active {
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .nav-link.active::after {
@@ -193,7 +191,7 @@ main section {
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     padding: 0.3rem 0.6rem;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     transition: var(--transition-fast);
 }
@@ -214,9 +212,9 @@ main section {
 
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: var(--border-radius); 
-    font-weight: 600;
+    padding: 1rem 2.5rem; /* 버튼 크기 키움 */
+    border-radius: var(--border-radius-full); 
+    font-weight: 700;
     text-align: center;
     border: none;
     cursor: pointer;
@@ -226,13 +224,13 @@ main section {
 .btn-primary {
     background: var(--primary-color);
     color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: var(--shadow-medium); 
 }
 
 .btn-primary:hover {
-    background: var(--secondary-color); 
-    box-shadow: var(--shadow-medium);
-    transform: translateY(-3px); 
+    background: var(--secondary-color); /* 주황색 호버 */
+    box-shadow: var(--shadow-heavy);
+    transform: translateY(-4px); 
 }
 
 .btn-secondary {
@@ -252,7 +250,7 @@ main section {
 .animate-on-scroll {
     opacity: 0;
     transform: translate3d(0, 20px, 0);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .animate-on-scroll.fade-in-up {
@@ -264,104 +262,111 @@ main section {
 /* 5. 메인 페이지 (index.html) 스타일 */
 /* ========================================================= */
 
-/* Hero Landing (풀스크린 헤더/텍스트 잘림 문제 해결 및 스타일 업그레이드) */
+/* Hero Landing (Toss 스타일 타이포그래피 및 여백) */
 .hero-landing {
     background: var(--background-white);
+    background: linear-gradient(180deg, var(--background-white) 0%, var(--background-light) 100%); 
+    
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     
-    /* 폰트 잘림 문제 해결: fixed 헤더(6rem) 공간 확보 + 상하 여백 */
-    padding-top: calc(6rem + 4rem); /* 헤더 높이(6rem) + 상단 여백(4rem) */
-    padding-bottom: 8rem;
+    padding-top: calc(6rem + 6rem); /* 헤더 공간 확보 + 상단 여백 증가 */
+    padding-bottom: 10rem;
     
-    min-height: 80vh; /* 뷰포트 대비 최소 높이 설정 */
+    min-height: 80vh; 
     
     cursor: pointer; 
-    margin-top: 0; /* 기존 -6rem 문제 해결 */
+    margin-top: 0; 
 }
 
 .hero-landing .hero-title {
-    font-size: 5rem; /* 제목 크기 극대화 (Toss 스타일) */
-    margin-bottom: 2rem; /* 여백 증가 */
-    color: var(--primary-color); 
+    font-size: 5rem; 
+    margin-bottom: 2rem; 
+    color: var(--text-primary); 
     transition: none;
-    line-height: 1.1; /* 줄 간격 조정 */
+    line-height: 1.1; 
+    font-weight: 800;
 }
 
 .hero-landing .hero-description {
-    font-size: 1.6rem; /* 설명 텍스트 크기 증가 (Apple 스타일) */
+    font-size: 1.8rem; /* 설명 텍스트 크기 증가 */
     max-width: 900px;
-    margin: 0 auto 3.5rem;
+    margin: 0 auto 4rem;
     color: var(--text-secondary);
     transition: none;
+    font-weight: 500;
 }
 
 .hero-scroll-cue {
-    margin-top: 3rem;
+    margin-top: 4rem;
     color: var(--text-secondary);
     transition: none;
 }
 
 .scroll-down-icon {
     display: block;
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    color: var(--secondary-color);
-    animation: pulse 1.5s infinite; /* 펄스 효과 적용 */
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    color: var(--secondary-color); /* 주황색 강조 */
+    animation: pulse 1.5s infinite; 
 }
 
 /* Application Selection Section (지원 유형 선택) */
 .application-selection {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
     background-color: var(--background-light);
 }
 
 .selection-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
+    gap: 2.5rem;
+    margin-top: 5rem;
 }
 
 .selection-card {
     display: block;
     background-color: var(--background-white);
-    padding: 3.5rem; /* 내부 여백 증가 */
-    border-radius: var(--border-radius-large); /* 28px 적용 (Kakao Pay 스타일) */
-    box-shadow: var(--shadow-light);
-    border-top: 5px solid var(--secondary-color);
+    padding: 3.5rem; 
+    border-radius: var(--border-radius-large); 
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color); 
     text-align: center;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .selection-card:hover {
-    box-shadow: var(--shadow-xl); /* 그림자를 더 강하게 */
-    transform: translateY(-12px); /* 더 높이 떠오르도록 */
-    border-top-color: var(--primary-color);
+    box-shadow: var(--shadow-heavy); 
+    transform: translateY(-8px); 
+    border-color: var(--secondary-color); /* 주황색 호버 테두리 */
 }
 
 .selection-icon {
-    font-size: 4rem; /* 아이콘 크기 키움 */
+    font-size: 4rem; 
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     transition: var(--transition);
 }
 
 .selection-card:hover .selection-icon {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* 주황색 호버 아이콘 */
 }
 
 .selection-title {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
+    font-weight: 700;
 }
 
 .selection-description {
     color: var(--text-secondary);
+    font-size: 1rem;
 }
 
 
@@ -369,29 +374,29 @@ main section {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .feature-card {
     background-color: var(--background-white);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
     transition: var(--transition);
-    border-left: 5px solid var(--primary-color); 
+    border-left: 6px solid var(--primary-color); /* 회색 기반 강조 선 */
 }
 
 .feature-card:hover {
     box-shadow: var(--shadow-heavy);
     transform: translateY(-8px); 
-    border-color: var(--secondary-color);
+    border-color: var(--secondary-color); /* 주황색 호버 */
 }
 
 .feature-icon {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    animation: pulse 4s infinite ease-in-out; 
+    font-size: 2.8rem;
+    color: var(--secondary-color); /* 주황색 아이콘 */
+    margin-bottom: 1.5rem;
+    animation: none; 
 }
 
 .feature-title {
@@ -401,7 +406,7 @@ main section {
 /* Stats 섹션 */
 .stats {
     background-color: var(--background-white);
-    padding: 4rem 0;
+    padding: 6rem 0; 
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -417,8 +422,8 @@ main section {
 }
 
 .stat-number {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 800;
     color: var(--primary-color);
     line-height: 1;
     margin-bottom: 0.5rem;
@@ -430,52 +435,52 @@ main section {
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* ========================================================= */
 /* 6. 페이지 헤더 스타일 (application.html, program.html, contact.html) */
 /* ========================================================= */
 .application-hero, .program-hero, .contact-hero {
-    background: var(--primary-color); 
+    background: var(--primary-color); /* 회색 기반 헤더 배경 */
     color: white;
-    padding: 6rem 0 3rem 0;
+    padding: 6rem 0 4rem 0; 
     margin-top: -6rem;
 }
 
 .application-title, .program-title, .contact-title {
-    font-size: 2.5rem;
+    font-size: 3rem; 
     text-align: center;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .application-description, .program-description, .contact-description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 /* ========================================================= */
 /* 7. 폼 페이지 (application.html) 스타일 */
 /* ========================================================= */
 .application-form {
-    padding-top: 3rem;
-    padding-bottom: 6rem;
+    padding-top: 6rem; 
+    padding-bottom: 10rem;
 }
 
 .form-container {
     display: flex;
-    gap: 3rem;
+    gap: 4rem; 
     align-items: flex-start;
 }
 
 .application-form-element {
     flex: 2;
     background-color: var(--background-white);
-    padding: 2.5rem;
+    padding: 3rem; 
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-medium);
     border: 1px solid var(--border-color);
@@ -483,15 +488,15 @@ main section {
 
 .form-info {
     flex: 1;
-    padding-top: 2.5rem; 
+    padding-top: 3rem; 
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .form-section {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
     border-bottom: 1px dashed var(--border-color);
 }
 
@@ -503,7 +508,7 @@ main section {
 
 .form-row {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem; 
 }
 
 .form-group {
@@ -513,17 +518,17 @@ main section {
 
 .form-label {
     display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .form-control {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.9rem 1.2rem; 
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 10px; 
     font-size: 1rem;
     transition: var(--transition-fast);
     background-color: var(--background-light);
@@ -531,7 +536,7 @@ main section {
 
 .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.2); 
+    box-shadow: 0 0 0 4px rgba(85, 85, 85, 0.2); /* 회색 기반 포커스 */
     outline: none;
     background-color: var(--background-white);
 }
@@ -542,8 +547,8 @@ main section {
 
 .error-message {
     color: var(--error-color);
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
     display: none;
 }
 
@@ -553,10 +558,10 @@ main section {
 
 .info-box {
     background-color: var(--background-white);
-    padding: 1.5rem;
+    padding: 1.8rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
-    border-left: 5px solid var(--secondary-color); 
+    border-left: 6px solid var(--secondary-color); /* 주황색 강조 */
 }
 
 .info-box h4 {
@@ -576,13 +581,13 @@ main section {
 .form-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 1rem;
-    padding-top: 1.5rem;
+    gap: 1.5rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--border-color);
 }
 
 .btn-large {
-    padding: 1rem 2.5rem;
+    padding: 1.2rem 3rem;
     font-size: 1.1rem;
 }
 
@@ -590,7 +595,7 @@ main section {
 /* 8. 프로그램 페이지 (program.html) 스타일 */
 /* ========================================================= */
 .program-overview {
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
 }
 
 .overview-grid {
@@ -609,7 +614,7 @@ main section {
 }
 .overview-image i {
     font-size: 8rem;
-    color: var(--secondary-color);
+    color: var(--primary-color);
     opacity: 0.5;
 }
 
@@ -654,13 +659,13 @@ main section {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
     transition: var(--transition);
-    border-top: 5px solid var(--secondary-color);
+    border-top: 5px solid var(--primary-color);
 }
 
 .program-card:hover {
-    box-shadow: var(--shadow-heavy); /* 호버 시 그림자 강하게 */
-    transform: translateY(-8px); /* 더 높이 들어올림 */
-    border-top-color: var(--primary-color);
+    box-shadow: var(--shadow-heavy); 
+    transform: translateY(-8px); 
+    border-top-color: var(--secondary-color);
 }
 
 .program-icon {
@@ -703,7 +708,7 @@ main section {
 
 .training-process {
     background-color: var(--background-light); 
-    padding: 6rem 0;
+    padding: 10rem 0;
 }
 
 .process-timeline {
@@ -716,7 +721,7 @@ main section {
 .timeline-item {
     position: relative;
     margin-left: 2rem;
-    padding-bottom: 3rem;
+    padding-bottom: 4rem; 
     
     /* 타임라인 항목도 스크롤 애니메이션 적용 */
     opacity: 0;
@@ -781,8 +786,6 @@ main section {
 .benefit-icon {
     font-size: 3rem;
     color: var(--secondary-color);
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
     margin-bottom: 1rem;
 }
 
@@ -796,8 +799,8 @@ main section {
 
 .cta-section {
     background: var(--primary-color); 
-    padding: 4rem 0;
     color: white;
+    padding: 6rem 0;
     text-align: center;
     margin-bottom: -6rem; 
 }
@@ -809,7 +812,7 @@ main section {
 
 .cta-description {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     opacity: 0.9;
 }
 
@@ -818,8 +821,8 @@ main section {
 /* 9. 연락처 페이지 (contact.html) 스타일 */
 /* ========================================================= */
 .contact-content {
-    padding-top: 3rem;
-    padding-bottom: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 10rem;
 }
 
 .contact-grid {
@@ -834,7 +837,7 @@ main section {
     flex-direction: column;
     gap: 1.5rem;
     background-color: var(--background-white);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-medium);
     border-top: 5px solid var(--primary-color);
@@ -905,7 +908,7 @@ main section {
 
 .contact-form {
     background-color: var(--background-white);
-    padding: 2.5rem;
+    padding: 3rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-medium);
     border: 1px solid var(--border-color);
@@ -913,8 +916,8 @@ main section {
 
 /* FAQ 섹션 */
 .faq-section {
-    padding-top: 3rem;
-    padding-bottom: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 10rem;
     background-color: var(--background-light);
 }
 
@@ -925,9 +928,9 @@ main section {
 
 .faq-item {
     background-color: var(--background-white);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     overflow: hidden;
     border: 1px solid var(--border-color);
 }
@@ -936,10 +939,10 @@ main section {
     width: 100%;
     background: none;
     border: none;
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
     text-align: left;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     cursor: pointer;
     transition: var(--transition-fast);
@@ -967,7 +970,7 @@ main section {
 }
 
 .faq-answer p {
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     color: var(--text-secondary);
 }
 
@@ -993,15 +996,15 @@ main section {
 }
 
 .footer-section h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem; 
+    margin-bottom: 1.5rem;
     color: var(--secondary-color);
 }
 
 .footer-section p, .footer-section li {
-    font-size: 0.95rem;
+    font-size: 1rem; 
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .footer-section a {
@@ -1015,7 +1018,7 @@ main section {
 .footer-bottom {
     text-align: center;
     padding-top: 1rem;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -1067,17 +1070,28 @@ main section {
 
     /* 메인 페이지 */
     .hero-landing {
-        min-height: auto !important; /* 모바일에서 전체 화면 강제 해제 */
+        min-height: auto !important; 
+        padding-top: calc(6rem + 3rem);
+        padding-bottom: 6rem;
     }
 
     .hero-landing .hero-title {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 
     .hero-landing .hero-description {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
+    main section {
+        padding: 6rem 0;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
     .stats-grid {
         flex-direction: column;
     }
